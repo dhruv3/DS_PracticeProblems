@@ -16,9 +16,12 @@ public class P57 {
 	
 
 	private static void rotateLL(LinkedList sList, int userInput) {
+		//take two pointers
 		listNode tempStart = sList.getHead();
 		listNode tempEnd = sList.getHead();
 		int counter = userInput; 
+		
+		//move one pointer by based on user input
 		while(counter > 0){
 			counter--;
 			tempEnd = tempEnd.getNode();
@@ -27,18 +30,19 @@ public class P57 {
 				return;
 			}
 		}
-		
+		//move both pointers together till farther one reaches the end
 		while(tempEnd.getNode() != null){
 			tempEnd = tempEnd.getNode();
 			tempStart = tempStart.getNode();
 		}
-		
+		//add final node to head and create new tail
 		listNode newHead = tempStart.getNode();
 		tempEnd.setNext(sList.getHead());
 		tempStart.setNext(null);
 		System.out.println("Final list " + print(newHead));
 	}
 
+	//as the head is not updated we had to create this print function to fix it
 	public static String print(listNode head){
 		String result = "";
 		listNode temp  = head;
