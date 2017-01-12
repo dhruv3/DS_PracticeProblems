@@ -8,4 +8,18 @@ P10: Check if a LL is NULL terminated or cyclic.
 
 P16: Insert a node in a sorted LL
 
-P17: Reverse a sLL
+P17: Reverse a single LL
+
+P24: Finding the merging point of 2 LL	
+
+P33: Merge two sorted LL
+
+P34: Reverse linked list in pairs
+
+P47: Find modular node from the end in a linked list
+
+P57: Right rotate a LL by k places
+
+P59: Rearranging LL based on the pivot element value
+
+P61: Removing duplicate nodes from LL
