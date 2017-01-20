@@ -13,17 +13,17 @@ public class P3 {
 		System.out.println("Enter the input that needs to be searched");
 		inputElement = in.nextInt();
 		
-		String answer = PreOrderMaxNode(root) ? "Number exists" : "Number is not present";
+		String answer = PreOrderNodeCheck(root) ? "Number exists" : "Number is not present";
 		System.out.println(answer);
 	}
 
-	private static Boolean PreOrderMaxNode(BinaryTreeNode root) {
+	private static Boolean PreOrderNodeCheck(BinaryTreeNode root) {
 		if(root != null){
 			if(root.getData() == inputElement){
 				return true;
 			}
 			//return the answer from subtrees
-			return (PreOrderMaxNode(root.getLeft()) || PreOrderMaxNode(root.getRight()) );
+			return (PreOrderNodeCheck(root.getLeft()) || PreOrderNodeCheck(root.getRight()) );
 		}
 		return false;
 	}
