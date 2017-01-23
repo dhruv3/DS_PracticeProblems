@@ -23,3 +23,9 @@ P57: Right rotate a LL by k places
 P59: Rearranging LL based on the pivot element value
 
 P61: Removing duplicate nodes from LL
+
+##Stacks-
+
+##Queues-
+
+##Trees-
