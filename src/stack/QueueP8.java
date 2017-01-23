@@ -24,7 +24,7 @@ public class QueueP8 {
 			//get 2 consecutive integers
 			int n1 = (int) mySt.pop();
 			int n2 = (int) mySt.pop();
-			//compare if they are cosecutive
+			//compare if they are consecutive
 			if(Math.abs(n1 - n2) != 1){
 				return false;
 			}
