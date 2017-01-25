@@ -26,6 +26,12 @@ P61: Removing duplicate nodes from LL
 
 ##Stacks-
 
+
+
 ##Queues-
+
+P1: Reversing queue using a stack
+
+Queue implemented using 2 stacks
 
 ##Trees-
