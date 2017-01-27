@@ -9,10 +9,11 @@ public class P13 {
 		PreOrder(root);
 		
 		int heightTree = minDepthRecursive(root);
-		System.out.println("Min depth= of the tree by recursive method is: " + heightTree);
+		System.out.println("Min depth of the tree by recursive method is: " + heightTree);
 	}
 
 	//recursive method
+	//Video tutorial: https://www.youtube.com/watch?v=hmWhJyz5kqc
 	private static int minDepthRecursive(BinaryTreeNode root) {
 		//trivial case
 		if(root == null)
