@@ -1,64 +1,49 @@
 package stack;
 
-import java.util.Scanner;
 import java.util.Stack;
 
 public class P11 {
 
 	
 	public static void main(String[] args) {
-		Scanner inp  = new Scanner(System.in);
-		System.out.println("Enter string to check for palindrome");
-		String userInput = inp.nextLine();
-		
-		Boolean flag = basicPalindromeCheck(userInput);
-		
-		if(flag)
-			System.out.println("It is a Palindrome.");
-		else
-			System.out.println("Not a Palindrome");
-		
-		flag = stackPalindromeCheck(userInput);
-		
-		if(flag)
-			System.out.println("It is a Palindrome.");
-		else
-			System.out.println("Not a Palindrome");
+		Stack<Integer> st = createStack();
+		st = reverseStack(st);
+		//print the reversed stack
+		while(!st.isEmpty()){
+			System.out.println(st.pop());
+		}
 	}
 
-	private static Boolean stackPalindromeCheck(String userInput) {
-		int j = userInput.length();
-		Stack<Character> st = new Stack<Character>();
-		
-		//adding half the characters to stack
-		for(int i = 0; i < j/2; i++){
-			st.push(userInput.charAt(i));
-		}
-		
-		//pop and compare
-		//Adding j%2: required as we need to add 1 in case length is odd
-		for(int i = j/2 +(j%2); i < j; i++){
-			if(st.pop() != userInput.charAt(i))
-				return false;
-		}
-		
-		return true;
+	//first pop all elements of the stack till it becomes empty
+	private static Stack<Integer> reverseStack(Stack<Integer> st) {
+		if(st.isEmpty())
+			return st;
+		int temp = st.pop();
+		reverseStack(st);
+		insertAtBottom(st, temp);
+		return st;
 	}
 
-	private static Boolean basicPalindromeCheck(String userInput) {
-		int j = userInput.length() - 1;
-		int i = 0;
-		while(i <= j && userInput.charAt(i) == userInput.charAt(j)){
-			i++;
-			j--;
+	//insert the element at the bottom of stack
+	private static void insertAtBottom(Stack<Integer> st, int data) {
+		if(st.isEmpty()){
+			st.push(data);
+			return;
 		}
-		//pointers crossover => It is a palindrome
-		if(i >= j) {
-			return true;
-		}
-		
-		return false;
+		int temp = st.pop();
+		//recursive step
+		insertAtBottom(st, data);
+		st.push(temp);
 	}
 
+	//create stack
+	private static Stack<Integer> createStack() {
+		Stack<Integer> st = new Stack<Integer>();
+		int i = 10;
+		while(i > 0){
+			st.push(i--);
+		}
+		return st;
+	}
 
 }
