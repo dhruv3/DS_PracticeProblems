@@ -15,10 +15,11 @@ public class P16 {
 		//print output
 		System.out.println("Total number of leaves are: " + nodeCounter[0]);
 		System.out.println("Total number of full nodes are: " + nodeCounter[1]);
+		System.out.println("Total number of half nodes are: " + nodeCounter[2]);
 	}
 
 	private static int[] nodeType(BinaryTreeNode root) {
-		int counter[] = {0, 0};
+		int counter[] = {0, 0, 0};
 		
 		//trivial case
 		if(root == null)
@@ -38,6 +39,10 @@ public class P16 {
 			//check for full nodes
 			if(temp.getLeft() != null && temp.getRight() != null){
 				counter[1]++;
+			}
+			//check for half nodes
+			if((temp.getLeft() == null && temp.getRight() != null) || (temp.getLeft() != null && temp.getRight() == null)){
+				counter[2]++;
 			}
 			
 			if(temp.getRight() != null){
