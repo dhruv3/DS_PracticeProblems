@@ -11,26 +11,33 @@ public class P16 {
 		System.out.println("Initial state of the tree:");
 		PreOrder(root);
 		
-		int leaves = totalLeaves(root);
-		System.out.println("Total number of leaves are: " + leaves);
+		int[] nodeCounter = nodeType(root);
+		//print output
+		System.out.println("Total number of leaves are: " + nodeCounter[0]);
+		System.out.println("Total number of full nodes are: " + nodeCounter[1]);
 	}
 
-	private static int totalLeaves(BinaryTreeNode root) {
+	private static int[] nodeType(BinaryTreeNode root) {
+		int counter[] = {0, 0};
+		
 		//trivial case
 		if(root == null)
-			return 0;
+			return counter;
 		
 		Queue<BinaryTreeNode> q = new LinkedList<BinaryTreeNode>();
 		q.add(root);
 		
 		BinaryTreeNode temp = null;
-		int counter = 0;
 		
 		while(!q.isEmpty()){
 			temp = q.poll();
-			
+			//check for leaves
 			if(temp.getLeft() == null && temp.getRight() == null){
-				counter++;
+				counter[0]++;
+			}
+			//check for full nodes
+			if(temp.getLeft() != null && temp.getRight() != null){
+				counter[1]++;
 			}
 			
 			if(temp.getRight() != null){
