@@ -4,17 +4,16 @@ public class P23 {
 
 	public static void main(String[] args) {
 		BinaryTreeNode root = createTree();
-		int sum = calculateSum(root);
-		System.out.println("Sum of the tree is " + sum);
+		int[] path = new int[256];
+		printPath(root, path, 0);
 	}
 
 
-	private static int calculateSum(BinaryTreeNode root) {
+	private static void printPath(BinaryTreeNode root, int[] path, int i) {
 		if(root == null)
-			return 0;
-		return (root.getData() + calculateSum(root.getLeft()) + + calculateSum(root.getRight()));
+			return;
+		
 	}
-
 
 	private static BinaryTreeNode createTree() {
 		BinaryTreeNode n1 = new BinaryTreeNode(1);
