@@ -9,11 +9,32 @@ public class P23 {
 	}
 
 
-	private static void printPath(BinaryTreeNode root, int[] path, int i) {
+	private static void printPath(BinaryTreeNode root, int[] path, int pathLength) {
 		if(root == null)
 			return;
 		
+		//add this node to path array
+		path[pathLength] = root.getData();
+		pathLength++;
+		
+		//check if leaf > then print the path
+		if(root.getLeft() == null && root.getRight() == null){
+			printPath(path, pathLength);
+		}
+		else{
+			printPath(root.getLeft(), path, pathLength);
+			printPath(root.getRight(), path, pathLength);
+		}
 	}
+
+	private static void printPath(int[] path, int pathLength) {
+		System.out.println("Path starts");
+		for(int i = 0; i < pathLength; i++){
+			System.out.println(path[i]);
+		}
+		System.out.println("Path ends");
+	}
+
 
 	private static BinaryTreeNode createTree() {
 		BinaryTreeNode n1 = new BinaryTreeNode(1);
