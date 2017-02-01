@@ -1,21 +1,36 @@
 package BinaryTree;
 
-import java.util.Stack;
-
 public class P27 {
 
 	public static void main(String[] args) {
 		BinaryTreeNode root = createTree();
+		System.out.println("Original tree:");
+		PreOrder(root);
 		BinaryTreeNode newRoot = mirrorTree(root);
+		System.out.println("Mirror tree:");
+		PreOrder(newRoot);
+	}
+	
+	//to print the tree
+	private static void PreOrder(BinaryTreeNode root) {
+		if(root != null){
+			System.out.println(root.getData());
+			PreOrder(root.getLeft());
+			PreOrder(root.getRight());
+		}
 	}
 
-
+	//first the leaves are switched
+	//then we move up and switch their parents
 	private static BinaryTreeNode mirrorTree(BinaryTreeNode root) {
 		BinaryTreeNode temp;
 		if(root != null){
+			//these ensure that nodes present below are switched
 			mirrorTree(root.getLeft());
 			mirrorTree(root.getRight());
+			//these ensure that nodes present below are switched
 			
+			//swap pointers
 			temp = root.left;
 			root.left = root.right;
 			root.right = temp;
