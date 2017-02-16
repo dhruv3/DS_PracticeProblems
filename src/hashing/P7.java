@@ -1,15 +1,11 @@
 package hashing;
 
-import java.util.ArrayList;
-
-import hashMap.HashNode;
-
 //Check if 2 Arrays have same elements
 public class P7 {
 
 	public static void main(String[] args) {
-		int[] arrOne = {1, 2, 2, 2, 5};
-		int[] arrTwo = {1, 2, 3, 6, 4, 5};
+		int[] arrOne = {1, 2, 2, 2, 5, 2, 5};
+		int[] arrTwo = {1, 2, 2, 2, 2, 5};
 		
 		Boolean ans = checkArr(arrOne, arrTwo);
 		
@@ -38,14 +34,18 @@ public class P7 {
 				return false;
 			}
 			else{
-				int val = intCounter.get(arrOne[i]);
-				intCounter.add(arrOne[i], --val);
+				int val = intCounter.get(arrTwo[i]);
+				intCounter.add(arrTwo[i], --val);
 			}
 		}
 		
-		//ArrayList<HashNode<K, V>> bucket = intCounter
+		for(int i=0;i<arrTwo.length;i++){
+			if(intCounter.get(arrTwo[i]) != 0){
+				return false;
+			}
+		}
 		
-		return null;
+		return true;
 	}
 
 }
