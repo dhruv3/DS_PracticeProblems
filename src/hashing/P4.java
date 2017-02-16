@@ -1,8 +1,8 @@
 package hashing;
 
-import java.util.Hashtable;
-import java.util.Scanner;
+import java.util.LinkedHashSet;
 
+//http://www.geeksforgeeks.org/remove-all-duplicates-from-the-input-string/
 //Removing Duplicate From Char Array
 public class P4 {
 
@@ -11,21 +11,19 @@ public class P4 {
 	public static void main(String[] args) {
 		char[] charArray = {'a', 't', 'e', 'a', 't', 'p'};
 		
-		char[] outputArr = removeDuplicate(charArray);
+		LinkedHashSet<Character> outputLHS = removeDuplicate(charArray);
 		
-		for(int j = 0; j < newLength; j++){
-			System.out.println(outputArr[j]);
-		}
+		// print string after deleting duplicate elements
+        for(Character ch : outputLHS)
+            System.out.print(ch);
 	}
 
-	private static char[] removeDuplicate(char[] charArray) {
-		Hashtable ht = new Hashtable();
-		int current = 0;
-		int last = 0;
-		for(;if(charArray[current] != null); current++){
-			
-		}
-		return charArray;
+	private static LinkedHashSet<Character> removeDuplicate(char[] charArray) {
+		LinkedHashSet<Character> lhs = new LinkedHashSet<>();
+		for(int i=0;i<charArray.length;i++)
+            lhs.add(charArray[i]);
+		
+		return lhs;
 	}
 
 }
