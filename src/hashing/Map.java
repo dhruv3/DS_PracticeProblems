@@ -100,7 +100,7 @@ public class Map<K,V> {
 	public void add(K key,V value)
 	{
 		int index = getBucketIndex(key);
-		System.out.println(index);
+		//System.out.println(index);
 		HashNode<K, V>head=bucket.get(index);
 		
 		//create new node and update its properties
