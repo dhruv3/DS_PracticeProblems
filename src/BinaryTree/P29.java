@@ -28,18 +28,21 @@ public class P29 {
 	private static BinaryTreeNode buildBT(int[] preorder, int preStart, int preEnd, int[] inorder, int inStart, int inEnd) {
 		if(preStart > preEnd || inStart > inEnd)
 			return null;
+		//get the root
 		int data = preorder[preStart];
+		//create this node
 		BinaryTreeNode curr = new BinaryTreeNode(data);
+		//find position in inorder traversal
 		int offset = inStart;
-		for(; offset <= inEnd; offset++){
+		for(; offset < inEnd; offset++){
 			if(inorder[offset] == data)
 				break;
 		}
-		
+		//set the nodes left subtree
 		curr.setLeft(buildBT(preorder, preStart + 1, preStart + offset - inStart, inorder, inStart, offset - 1));
-		
-		curr.setRight(buildBT(preorder, preStart + 1, preStart + offset - inStart + 1, inorder, offset + 1, inEnd));
-		
+		//set the nodes right subtree
+		curr.setRight(buildBT(preorder, preStart + offset - inStart + 1, preEnd, inorder, offset + 1, inEnd));
+		//return the node
 		return curr;
 	}
 	
