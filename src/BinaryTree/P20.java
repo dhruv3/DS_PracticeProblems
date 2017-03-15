@@ -25,6 +25,8 @@ public class P20 {
 			diameter = left + right;
 		}
 		//check added 
+		//issue does not exist because we are returning diameter+1
+		//diameter contains the longest path encountered
 		if(root == mainRoot){
 			return diameter + 1;
 		}
@@ -44,8 +46,20 @@ public class P20 {
 		n2.setRight(n5);
 		BinaryTreeNode n6 = new BinaryTreeNode(6);
 		BinaryTreeNode n7 = new BinaryTreeNode(7);
-		n3.setLeft(n6);
-		n3.setRight(n7);
+//		n3.setLeft(n6);
+//		n3.setRight(n7);
+		
+		BinaryTreeNode n8 = new BinaryTreeNode(8);
+		BinaryTreeNode n9 = new BinaryTreeNode(9);
+		BinaryTreeNode n10 = new BinaryTreeNode(10);
+		n5.setLeft(n8);
+		n8.setRight(n9);
+		n9.setRight(n10);
+		
+		BinaryTreeNode n11 = new BinaryTreeNode(11);
+		BinaryTreeNode n12 = new BinaryTreeNode(12);
+		n4.setLeft(n11);
+		n11.setRight(n12);
 		
 		BinaryTreeNode root = n1;
 		
