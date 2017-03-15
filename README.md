@@ -37,3 +37,7 @@ P1: Reversing queue using a stack
 Queue implemented using 2 stacks
 
 ##Trees-
+
+##Priority Queues/Heaps
+
+##Hashing
