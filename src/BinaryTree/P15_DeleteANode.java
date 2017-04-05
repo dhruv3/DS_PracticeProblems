@@ -4,7 +4,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Scanner;
 
-public class P15 {
+public class P15_DeleteANode {
 
 	public static void main(String[] args) {
 		BinaryTreeNode root = createTree();

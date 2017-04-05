@@ -2,7 +2,7 @@ package BinaryTree;
 
 import java.util.Scanner;
 
-public class P3 {
+public class P3_SearchElement {
 
 	private static int inputElement = Integer.MIN_VALUE;
 

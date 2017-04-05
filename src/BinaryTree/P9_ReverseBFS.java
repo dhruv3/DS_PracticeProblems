@@ -1,26 +1,20 @@
 package BinaryTree;
 
-import java.util.Scanner;
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.Stack;
 
-public class P5 {
+public class P9_ReverseBFS {
 
 	private static int inputElement = Integer.MIN_VALUE;
 
 	public static void main(String[] args) {
 		BinaryTreeNode root = createTree();
-		//take input
-		Scanner in  = new Scanner(System.in);
-		System.out.println("Enter node you want to insert");
-		inputElement = in.nextInt();
 		//print initial state
 		System.out.println("Initial state of the tree:");
 		PreOrder(root);
-		//add node
-		PreOrderInsertNode(root);
-		//print tree
-		System.out.println("After Insertion:");
-		PreOrder(root);
-		
+		//reverse and print
+		ReverseLevelOrder(root);
 	}
 
 	//to print the tree
@@ -32,27 +26,37 @@ public class P5 {
 		}
 	}
 	
-	//check if left empty > insert node
-	//check if right empty > insert node
-	//return added so as so prevent further insertion
-	private static Boolean PreOrderInsertNode(BinaryTreeNode root) {
-		if(root.getLeft() == null){
-			BinaryTreeNode temp = new BinaryTreeNode(inputElement);
-			root.setLeft(temp);
-			return true;
+	private static void ReverseLevelOrder(BinaryTreeNode root) {
+		Queue<BinaryTreeNode> myLine = new LinkedList<BinaryTreeNode>();
+		//stack to store nodes
+		Stack<Integer> st = new Stack<Integer>();
+		//do bfs and add into stack
+		myLine.add(root);
+		while(!myLine.isEmpty()){
+			BinaryTreeNode temp = myLine.poll();
+			st.add(temp.getData());
+			if(temp.getLeft() != null){
+				myLine.add(temp.getLeft());
+			}
+			if(temp.getRight() != null){
+				myLine.add(temp.getRight());
+			}
 		}
-		else if(root.getRight() == null){
-			BinaryTreeNode temp = new BinaryTreeNode(inputElement);
-			root.setRight(temp);
-			return true;
-		}
-		else{
-			return (PreOrderInsertNode(root.getLeft()) ||	PreOrderInsertNode(root.getRight()) );
-		}
+		//function to print stack
+		printStack(st);
 	}
 	
+	//print output
+	private static void printStack(Stack<Integer> st) {
+		System.out.println("After Insertion:");
+		while(!st.isEmpty()){
+			int temp = st.pop();
+			System.out.println(temp);
+		}
+	}
+
 	private static BinaryTreeNode createTree() {
-		BinaryTreeNode n1 = new BinaryTreeNode(11);
+		BinaryTreeNode n1 = new BinaryTreeNode(1);
 		BinaryTreeNode n2 = new BinaryTreeNode(2);
 		BinaryTreeNode n3 = new BinaryTreeNode(3);
 		n1.setLeft(n2);

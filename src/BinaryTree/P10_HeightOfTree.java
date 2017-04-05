@@ -2,7 +2,7 @@ package BinaryTree;
 
 import java.util.Stack;
 
-public class P10 {
+public class P10_HeightOfTree {
 
 	public static void main(String[] args) {
 		BinaryTreeNode root = createTree();

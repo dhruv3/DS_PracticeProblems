@@ -3,7 +3,7 @@ package BinaryTree;
 import java.util.LinkedList;
 import java.util.Queue;
 
-public class P16 {
+public class P16_CountingLeafNodes {
 
 	public static void main(String[] args) {
 		BinaryTreeNode root = createTree();

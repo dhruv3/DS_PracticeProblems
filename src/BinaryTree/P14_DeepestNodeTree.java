@@ -1,6 +1,9 @@
 package BinaryTree;
 
-public class P13 {
+import java.util.LinkedList;
+import java.util.Queue;
+
+public class P14_DeepestNodeTree {
 
 	public static void main(String[] args) {
 		BinaryTreeNode root = createTree();
@@ -8,26 +11,30 @@ public class P13 {
 		System.out.println("Initial state of the tree:");
 		PreOrder(root);
 		
-		int heightTree = minDepthRecursive(root);
-		System.out.println("Min depth of the tree by recursive method is: " + heightTree);
+		BinaryTreeNode node = deepestNode(root);
+		System.out.println("Deepest node is: " + node.getData());
 	}
 
-	//recursive method
-	//Video tutorial: https://www.youtube.com/watch?v=hmWhJyz5kqc
-	private static int minDepthRecursive(BinaryTreeNode root) {
+	private static BinaryTreeNode deepestNode(BinaryTreeNode root) {
 		//trivial case
 		if(root == null)
-			return 0;
+			return null;
+		Queue<BinaryTreeNode> q = new LinkedList<BinaryTreeNode>();
+		q.add(root);
 		
-		//check if its a leaf node
-		if(root.getLeft() == null && root.getRight() == null)
-			return 1;
+		BinaryTreeNode temp = null;
 		
-		int leftDepth = root.getLeft() != null ? minDepthRecursive(root.getLeft()) : Integer.MAX_VALUE;
-		int rightDepth = root.getRight() != null ? minDepthRecursive(root.getRight()) : Integer.MAX_VALUE;
+		while(!q.isEmpty()){
+			temp = q.poll();
+			if(temp.getLeft() != null){
+				q.add(temp.getLeft());
+			}
+			if(temp.getRight() != null){
+				q.add(temp.getRight());
+			}
+		}
 		
-		//+1 added so as to include the element at the present level
-		return 1 + Math.min(leftDepth , rightDepth);
+		return temp;
 	}
 
 	

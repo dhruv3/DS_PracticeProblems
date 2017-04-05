@@ -5,7 +5,7 @@ import java.util.Map;
 import java.util.Scanner;
 import java.util.Stack;
 
-public class P1 {
+public class P1_BalanceSymbols {
 
 	static char openDelimiter[] = {'[', '{', '('};
 	static char closeDelimiter[] = {']', '}', ')'};

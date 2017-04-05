@@ -1,6 +1,6 @@
 package BinaryTree;
 
-public class P1 {
+public class P1_MaxElement {
 
 	private static int MAX_Int = Integer.MIN_VALUE;
 

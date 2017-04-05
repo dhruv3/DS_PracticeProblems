@@ -1,9 +1,6 @@
 package BinaryTree;
 
-import java.util.LinkedList;
-import java.util.Queue;
-
-public class P14 {
+public class P13_MinDepthBinaryTree {
 
 	public static void main(String[] args) {
 		BinaryTreeNode root = createTree();
@@ -11,30 +8,27 @@ public class P14 {
 		System.out.println("Initial state of the tree:");
 		PreOrder(root);
 		
-		BinaryTreeNode node = deepestNode(root);
-		System.out.println("Deepest node is: " + node.getData());
+		int heightTree = minDepthRecursive(root);
+		System.out.println("Min depth of the tree by recursive method is: " + heightTree);
 	}
 
-	private static BinaryTreeNode deepestNode(BinaryTreeNode root) {
+	//recursive method
+	//Video tutorial: https://www.youtube.com/watch?v=hmWhJyz5kqc
+	private static int minDepthRecursive(BinaryTreeNode root) {
 		//trivial case
 		if(root == null)
-			return null;
-		Queue<BinaryTreeNode> q = new LinkedList<BinaryTreeNode>();
-		q.add(root);
+			return 0;
 		
-		BinaryTreeNode temp = null;
+		//check if its a leaf node
+		if(root.getLeft() == null && root.getRight() == null)
+			return 1;
 		
-		while(!q.isEmpty()){
-			temp = q.poll();
-			if(temp.getLeft() != null){
-				q.add(temp.getLeft());
-			}
-			if(temp.getRight() != null){
-				q.add(temp.getRight());
-			}
-		}
+		//Integer.Max_Value is used as we don't want to consider the null child as depth
+		int leftDepth = root.getLeft() != null ? minDepthRecursive(root.getLeft()) : Integer.MAX_VALUE;
+		int rightDepth = root.getRight() != null ? minDepthRecursive(root.getRight()) : Integer.MAX_VALUE;
 		
-		return temp;
+		//+1 added so as to include the element at the present level
+		return 1 + Math.min(leftDepth , rightDepth);
 	}
 
 	

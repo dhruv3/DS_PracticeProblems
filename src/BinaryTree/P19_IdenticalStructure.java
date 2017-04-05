@@ -1,6 +1,6 @@
 package BinaryTree;
 
-public class P19 {
+public class P19_IdenticalStructure {
 
 	public static void main(String[] args) {
 		BinaryTreeNode root1 = createTree1();
