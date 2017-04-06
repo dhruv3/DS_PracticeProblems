@@ -1,6 +1,6 @@
 package BinaryTree;
 
-public class P33 {
+public class P33_LCA {
 	//Main Tutorial: http://www.geeksforgeeks.org/lowest-common-ancestor-binary-tree-set-1/
 	//Video Tutorial: https://www.youtube.com/watch?v=13m9ZCB8gjw
 	public static void main(String[] args) {

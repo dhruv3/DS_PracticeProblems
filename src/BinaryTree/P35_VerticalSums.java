@@ -2,7 +2,7 @@ package BinaryTree;
 
 import java.util.HashMap;
 
-public class P35 {
+public class P35_VerticalSums {
 
 	public static void main(String[] args) {
 		BinaryTreeNode root = createTree();

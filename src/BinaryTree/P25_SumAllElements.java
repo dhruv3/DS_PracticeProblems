@@ -1,6 +1,6 @@
 package BinaryTree;
 
-public class P25 {
+public class P25_SumAllElements {
 
 	public static void main(String[] args) {
 		BinaryTreeNode root = createTree();

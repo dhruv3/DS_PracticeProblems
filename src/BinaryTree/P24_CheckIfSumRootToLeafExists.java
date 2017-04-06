@@ -2,7 +2,7 @@ package BinaryTree;
 
 import java.util.Scanner;
 
-public class P24 {
+public class P24_CheckIfSumRootToLeafExists {
 
 	public static void main(String[] args) {
 		BinaryTreeNode root = createTree();

@@ -1,6 +1,6 @@
 package BinaryTree;
 
-public class P20 {
+public class P20_DiameterOfTree {
 
 	static int diameter = -1;
 	static BinaryTreeNode mainRoot = null; 

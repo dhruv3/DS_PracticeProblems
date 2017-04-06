@@ -1,6 +1,6 @@
 package BinaryTree;
 
-public class P23 {
+public class P23_PrintAllPaths {
 
 	public static void main(String[] args) {
 		BinaryTreeNode root = createTree();

@@ -1,6 +1,6 @@
 package BinaryTree;
 
-public class P29 {
+public class P29_BuildTreeUsingPreAndInOrder {
 
 	public static void main(String[] args) {
 		int preorder[] = {1, 2, 4, 5, 3, 6, 7};

@@ -4,7 +4,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Stack;
 
-public class P34 {
+public class P34_ZigZagTraversal {
 
 	public static void main(String[] args) {
 		BinaryTreeNode root = createTree();

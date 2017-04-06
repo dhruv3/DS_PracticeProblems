@@ -1,6 +1,6 @@
 package BinaryTree;
 
-public class P32 {
+public class P32_PrintAllAncestors {
 
 	public static void main(String[] args) {
 		BinaryTreeNode root = createTree();

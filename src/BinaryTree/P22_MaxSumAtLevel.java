@@ -3,7 +3,7 @@ package BinaryTree;
 import java.util.LinkedList;
 import java.util.Queue;
 
-public class P22 {
+public class P22_MaxSumAtLevel {
 
 	public static void main(String[] args) {
 		BinaryTreeNode root = createTree();

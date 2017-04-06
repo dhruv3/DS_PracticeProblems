@@ -1,6 +1,6 @@
 package BinaryTree;
 
-public class P27 {
+public class P27_CreateMirrorTrees {
 
 	public static void main(String[] args) {
 		BinaryTreeNode root = createTree();
