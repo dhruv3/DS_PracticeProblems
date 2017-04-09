@@ -20,6 +20,12 @@ public class AdjacencyListG4G {
 		adj[src].insertAtStart(new listNode(dst));
 	}
 	
+	//undirected graph
+	public void addUndirEdge(int src, int dst){
+		adj[src].insertAtStart(new listNode(dst));
+		adj[dst].insertAtStart(new listNode(src));
+	}
+	
 	public int vertexCount(){
 		return vertexCount;
 	}
