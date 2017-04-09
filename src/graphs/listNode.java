@@ -3,6 +3,7 @@ package graphs;
 public class listNode {
 	private int data;
 	private listNode next;
+	private int weight = 1;
 	
 	public listNode(int data){
 		this.data = data;
@@ -15,9 +16,6 @@ public class listNode {
 	public int getData(){
 		return data;
 	}
-//	public int getData(listNode node){
-//		return node.data;
-//	}
 	
 	public void setNext(listNode next){
 		this.next = next;
@@ -25,5 +23,13 @@ public class listNode {
 	
 	public listNode getNode(){
 		return this.next;
+	}
+	
+	public void setWeight(int weight){
+		this.weight = weight;
+	}
+	
+	public int getWeight(){
+		return weight;
 	}
 }

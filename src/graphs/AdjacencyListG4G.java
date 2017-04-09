@@ -26,6 +26,24 @@ public class AdjacencyListG4G {
 		adj[dst].insertAtStart(new listNode(src));
 	}
 	
+	//directed weighted graph
+	public void addEdge(int src, int dst, int w){
+		listNode temp = new listNode(dst);
+		temp.setWeight(w);
+		adj[src].insertAtStart(temp);
+	}
+	
+	//undirected weighted graph
+	public void addUndirEdge(int src, int dst, int w){
+		listNode dstNode = new listNode(dst);
+		dstNode.setWeight(w);
+		adj[src].insertAtStart(dstNode);
+		
+		listNode srcNode = new listNode(src);
+		srcNode.setWeight(w);
+		adj[dst].insertAtStart(srcNode);
+	}
+	
 	public int vertexCount(){
 		return vertexCount;
 	}
