@@ -1,8 +1,6 @@
 package graphs;
-
-import java.util.ArrayDeque;
-import java.util.Queue;
-
+//tutorial: http://www.geeksforgeeks.org/greedy-algorithms-set-6-dijkstras-shortest-path-algorithm/
+//implemented without using heaps
 public class Dijkstra_WeightedShortestPath {
 	
 	public static AdjacencyListG4G g;
@@ -14,43 +12,48 @@ public class Dijkstra_WeightedShortestPath {
 	}
 	
 	private static void dijkstra(int startVertex) {
+		int totalVertex = g.vertexCount();
+		boolean[] sptSet = new boolean[totalVertex];
 		//array to hold distances
-		int[] dist = new int[g.vertexCount()];
+		int[] dist = new int[totalVertex];
+		//initialize array
 		for(int i = 0; i < dist.length; i++){
-			dist[i] = -1;
-		}
-	}
-
-	private static void unweightedShortestPath(int startVertex) {
-		Queue<Integer> q = new ArrayDeque<Integer>();
-		q.add(startVertex);
-		
-		//array to hold distances
-		int[] dist = new int[g.vertexCount()];
-		for(int i = 0; i < dist.length; i++){
-			dist[i] = -1;
+			dist[i] = Integer.MAX_VALUE;
 		}
 		
-		//dist to self is set to ZERO
 		dist[startVertex] = 0;
-		while(!q.isEmpty()){
-			int v = q.poll();
-			//get the LL corresponding to our vertex
-			//get the head and travel the LL
-			LinkedList ll = g.getList(v);
+		//looping till totalVertex-1
+		for(int idx = 0; idx < totalVertex-1; idx++){
+			//select a vertex
+			int selVtx = minDist(dist, sptSet);
+			sptSet[selVtx] = true;
+			//update neighboring vertices
+			LinkedList ll = g.getList(selVtx);
 			listNode temp = ll.getHead();
 			while(temp != null){
-				//if uninitialized then update the distance
-				//and add to queue so as to explore its neighbors
-				if(dist[temp.getData()] == -1){
-					dist[temp.getData()] = dist[v] + 1;
-					q.add(temp.getData());
+				int v = temp.getData();
+				//neighbor not yet visited and distance is larger
+				if(sptSet[v] == false && (dist[v] > dist[selVtx] + temp.getWeight())){
+					dist[v] = dist[selVtx] + temp.getWeight();
 				}
 				temp = temp.getNode();
 			}
 		}
-		//output distances
+		//print results
 		printDist(dist);
+	}
+	
+	//get vertex with min dist value and that vertex is not yet in shortest path set
+	private static int minDist(int[] dist, boolean[] sptSet) {
+		int min = Integer.MAX_VALUE;
+		int v = -1;
+		for(int  i = 0; i < sptSet.length; i++){
+			if(sptSet[i] == false && dist[i] < min){
+				min = dist[i];
+				v = i;
+			}
+		}
+		return v;
 	}
 
 	private static void printDist(int[] dist) {
@@ -61,7 +64,7 @@ public class Dijkstra_WeightedShortestPath {
 	}
 
 	private static void createGraph() {
-		g = new AdjacencyListG4G(6);
+		g = new AdjacencyListG4G(9);
 		g.addUndirEdge(0, 1, 4);
         g.addUndirEdge(0, 7, 8);
         g.addUndirEdge(1, 2, 8);
