@@ -1,6 +1,8 @@
 package sorting;
 
-//tutorial: http://www.geeksforgeeks.org/radix-sort/
+import java.util.LinkedList;
+
+//tutorial: https://www.youtube.com/watch?v=YXFI4osELGU
 public class RadixSort {
 
 	public static void main(String[] args) {
@@ -13,28 +15,50 @@ public class RadixSort {
 	}
 
 	private static int[] radSort(int[] inpArr) {
-		int maxDigits = getMaxDigits(inpArr);
+		int max = getMax(inpArr);
+		int tempMax = max;
+		int maxDigits = 0;
+		while(tempMax >= 1){
+			tempMax = tempMax / 10;
+			maxDigits++;
+		}
+		
 		int[] tempArr = new int[inpArr.length]; 
 		for(int  i = 0; i < maxDigits; i++){
 			fillTempArr(inpArr, tempArr, i);
-			sortTempArr(inpArr, tempArr);
+			buckSort(inpArr, tempArr);
 		}
 		
 		return inpArr;
 	}
 	
-	//use insertion sort 
-	private static void sortTempArr(int[] inpArr, int[] tempArr) {
+	
+	private static void buckSort(int[] inpArr, int[] tempArr) {
+		//https://stackoverflow.com/questions/20202889/how-can-i-create-an-array-of-linked-lists-in-java
+		@SuppressWarnings("unchecked")
+		LinkedList<Integer>[] vertex = new LinkedList[10];
+
+		//distribute values across the array
 		for(int i = 0; i < tempArr.length; i++){
-			for(int j = 0; j < i; j++){
-				if(tempArr[i] < tempArr[j]){
-					int temp = inpArr[j];
-					inpArr[j] = inpArr[i];
-					inpArr[i] = temp;
-					
-					temp = tempArr[j];
-					tempArr[j] = tempArr[i];
-					tempArr[i] = temp;
+			int buckIdx = tempArr[i];
+			//initialize array element 
+			if(vertex[buckIdx] == null){
+				vertex[buckIdx] = new LinkedList<Integer>();
+			}
+			vertex[buckIdx].add(inpArr[i]);
+		}
+		
+		updateInpArr(vertex, inpArr);
+	}
+	
+	//remove elements from the bucket and add them to input array
+	private static void updateInpArr(LinkedList<Integer>[] vertex, int[] inpArr) {
+		int ctr = 0;
+		//loop through the buckets and add content to input array 
+		for(int i = 0; i < vertex.length; i++){
+			if(vertex[i] != null){
+				for(int j = 0; j < vertex[i].size(); j++){
+					inpArr[ctr++] = vertex[i].get(j);
 				}
 			}
 		}
@@ -48,20 +72,15 @@ public class RadixSort {
 		}
 	}
 
-	//returns the number of digits in the max number
-	private static int getMaxDigits(int[] inpArr) {
+	//returns the max number
+	private static int getMax(int[] inpArr) {
 		int max = Integer.MIN_VALUE;
 		for(int i = 0; i < inpArr.length; i++){
 			if(max < inpArr[i]){
 				max = inpArr[i];
 			}
 		}
-		int cnt = 0;
-		while(max >= 1){
-			max = max / 10;
-			cnt++;
-		}
-		return cnt;
+		return max;
 	}
 
 }
