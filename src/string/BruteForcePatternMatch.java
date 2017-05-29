@@ -14,12 +14,22 @@ public class BruteForcePatternMatch {
 		}
 	}
 
+	//better implementation than brute force
 	private static Boolean isPatternPresent(String input, String pattern) {
 		Boolean ans = false;
 		int inpLen = input.length();
 		int patLen = pattern.length();
+		int counter = 0;
 		for(int i = 0; i < (inpLen - patLen + 1); i++){
-			
+			if(input.charAt(i) == pattern.charAt(i%patLen)){
+				counter++;
+				if(counter == patLen){
+					return true;
+				}
+			}
+			else{
+				counter = 0;
+			}
 		}
 		return ans;
 	}
