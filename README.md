@@ -2,6 +2,8 @@
 
 Problems not updated yet. Will update in future
 
+Sorting and string problems added 
+
 ##Linked List-
 
 P5: Finding the nth node from the end of a LL
