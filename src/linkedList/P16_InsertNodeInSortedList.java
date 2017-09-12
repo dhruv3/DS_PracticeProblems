@@ -2,7 +2,7 @@ package linkedList;
 
 import java.util.Scanner;
 
-public class P16 {
+public class P16_InsertNodeInSortedList {
 
 	public static void main(String[] args) {
 		LinkedList sList = new LinkedList();

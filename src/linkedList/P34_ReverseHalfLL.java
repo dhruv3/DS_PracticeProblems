@@ -1,7 +1,7 @@
 package linkedList;
 
 
-public class P34 {
+public class P34_ReverseHalfLL {
 
 	public static void main(String[] args) {
 		LinkedList sList = new LinkedList();

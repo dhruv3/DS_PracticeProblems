@@ -2,7 +2,7 @@ package linkedList;
 
 import java.util.Scanner;
 
-public class P5 {
+public class P5_NthNodeFromEnd {
 
 	public static void main(String[] args) {
 		LinkedList sList = new LinkedList();

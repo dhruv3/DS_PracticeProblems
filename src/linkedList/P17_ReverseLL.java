@@ -1,7 +1,7 @@
 package linkedList;
 
 
-public class P17 {
+public class P17_ReverseLL {
 
 	public static void main(String[] args) {
 		LinkedList sList = new LinkedList();

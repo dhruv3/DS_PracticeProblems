@@ -1,6 +1,6 @@
 package linkedList;
 
-public class P10 {
+public class P10_FloydCycle {
 
 	public static void main(String[] args) {
 		LinkedList sList = new LinkedList();

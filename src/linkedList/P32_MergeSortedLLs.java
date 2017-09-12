@@ -1,7 +1,7 @@
 package linkedList;
 
 
-public class P32 {
+public class P32_MergeSortedLLs {
 
 	public static void main(String[] args) {
 		LinkedList sList = new LinkedList();

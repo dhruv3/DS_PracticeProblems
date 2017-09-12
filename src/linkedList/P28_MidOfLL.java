@@ -1,7 +1,7 @@
 package linkedList;
 
 
-public class P28 {
+public class P28_MidOfLL {
 
 	public static void main(String[] args) {
 		LinkedList sList = new LinkedList();

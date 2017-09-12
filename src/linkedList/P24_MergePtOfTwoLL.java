@@ -1,7 +1,7 @@
 package linkedList;
 
 
-public class P24 {
+public class P24_MergePtOfTwoLL {
 
 	public static void main(String[] args) {
 		LinkedList sList = new LinkedList();
