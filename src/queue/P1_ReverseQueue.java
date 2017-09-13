@@ -2,7 +2,7 @@ package queue;
 
 import java.util.Stack;
 
-public class P1 {
+public class P1_ReverseQueue {
 	
 	public static void main(String[] args) throws Exception {
 		LinkedQueue llQ = new LinkedQueue();

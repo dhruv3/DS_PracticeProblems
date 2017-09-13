@@ -1,6 +1,6 @@
 package linkedList;
 
-public class P61 {
+public class P61_RemoveDuplicates {
 
 	public static void main(String[] args) {
 		LinkedList sList = new LinkedList();

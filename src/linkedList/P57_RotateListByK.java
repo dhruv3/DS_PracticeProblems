@@ -2,7 +2,7 @@ package linkedList;
 
 import java.util.Scanner;
 
-public class P57 {
+public class P57_RotateListByK {
 
 	public static void main(String[] args) {
 		LinkedList sList = new LinkedList();

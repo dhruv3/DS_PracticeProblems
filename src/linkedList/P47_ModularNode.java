@@ -2,7 +2,7 @@ package linkedList;
 
 import java.util.Scanner;
 
-public class P47 {
+public class P47_ModularNode {
 
 	public static void main(String[] args) {
 		LinkedList sList = new LinkedList();

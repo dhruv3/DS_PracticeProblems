@@ -2,7 +2,7 @@ package linkedList;
 
 import java.util.Scanner;
 
-public class P59 {
+public class P59_PartitionBasedOnK {
 
 	public static void main(String[] args) {
 		LinkedList sList = new LinkedList();

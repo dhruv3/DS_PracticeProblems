@@ -2,7 +2,7 @@ package stack;
 
 import java.util.Stack;
 
-public class P11 {
+public class P11_ReverseStack {
 
 	
 	public static void main(String[] args) {

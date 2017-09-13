@@ -3,7 +3,7 @@ package stack;
 import java.util.Scanner;
 import java.util.Stack;
 
-public class P8 {
+public class P8_StringIsPalindrome {
 
 	
 	public static void main(String[] args) {
